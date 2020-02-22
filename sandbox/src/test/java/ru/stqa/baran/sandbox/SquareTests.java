@@ -1,4 +1,4 @@
-package ru.stqua.baran.sandbox;
+package ru.stqa.baran.sandbox;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
