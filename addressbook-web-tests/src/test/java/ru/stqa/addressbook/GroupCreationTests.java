@@ -1,5 +1,7 @@
 package ru.stqa.addressbook;
 
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
@@ -16,13 +18,41 @@ import static org.openqa.selenium.OutputType.*;
 
 public class GroupCreationTests {
     FirefoxDriver wd;
-    
+
     @BeforeMethod
     public void setUp() throws Exception {
+        //System.setProperty("webdriver.firefox.bin", "C:\\Program Files\\Mozilla Firefox\\firefox.exe");
+        //wd = new FirefoxDriver();
+
+        //DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+        //capabilities.setCapability("marionette",true);
+        //FirefoxOptions options = new FirefoxOptions();
+        //options.merge(capabilities);
+
+        //второй
+        //System.setProperty ("webdriver.gecko.driver", "C:\\geckodriver\\geckodriver.exe");
+        //WebDriver driver = new FirefoxDriver();
+
+        //третий
+        //System.setProperty ("webdriver.gecko.driver", "C:\\geckodriver\\geckodriver.exe");
+        //DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+        //capabilities.setCapability("marionette",true);
+        //wd = new FirefoxDriver();
+
+        //четвертый
+        System.setProperty ("webdriver.gecko.driver", "C:\\geckodriver\\geckodriver.exe");
+        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+        capabilities.setCapability("marionette",true);
+        FirefoxOptions options = new FirefoxOptions();
+        options.merge(capabilities);
         wd = new FirefoxDriver();
+
+
+
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+
     }
-    
+
     @Test
     public void GroupCreationTests() {
         wd.get("http://addressbook/");
@@ -47,12 +77,12 @@ public class GroupCreationTests {
         wd.findElement(By.name("submit")).click();
         wd.findElement(By.linkText("group page")).click();
     }
-    
+
     @AfterMethod
     public void tearDown() {
         wd.quit();
     }
-    
+
     public static boolean isAlertPresent(FirefoxDriver wd) {
         try {
             wd.switchTo().alert();
