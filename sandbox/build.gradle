@@ -4,10 +4,11 @@ mainClassName = "ru.stqa.pft.sandbox.MyFirstProgram"
 
 test {
     useTestNG()
-}
-repositories {
+
+    repositories {
     mavenCentral()
 }
 dependencies {
     implementation 'org.testng:testng:7.1.0'
+    compile
 }

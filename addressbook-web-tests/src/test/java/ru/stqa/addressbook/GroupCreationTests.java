@@ -21,8 +21,8 @@ public class GroupCreationTests {
 
     @BeforeMethod
     public void setUp() throws Exception {
-        //System.setProperty("webdriver.firefox.bin", "C:\\Program Files\\Mozilla Firefox\\firefox.exe");
-        //wd = new FirefoxDriver();
+        System.setProperty("webdriver.firefox.bin", "C:\\Program Files\\Mozilla Firefox\\firefox.exe");
+        wd = new FirefoxDriver();
 
         //DesiredCapabilities capabilities = DesiredCapabilities.firefox();
         //capabilities.setCapability("marionette",true);
@@ -40,15 +40,15 @@ public class GroupCreationTests {
         //wd = new FirefoxDriver();
 
         //четвертый
-        System.setProperty ("webdriver.gecko.driver", "C:\\geckodriver\\geckodriver.exe");
-        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-        capabilities.setCapability("marionette",true);
-        FirefoxOptions options = new FirefoxOptions();
-        options.merge(capabilities);
-        wd = new FirefoxDriver();
+        //System.setProperty ("webdriver.gecko.driver", "C:\\geckodriver\\geckodriver.exe");
+        //DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+        //capabilities.setCapability("marionette",true);
+        //FirefoxOptions options = new FirefoxOptions();
+        //options.merge(capabilities);
+        //wd = new FirefoxDriver();
 
-
-
+        //System.setProperty("webdriver.gecko.driver", "C:\\geckodriver\\geckodriver.exe");
+        //wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
     }
